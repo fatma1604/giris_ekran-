@@ -14,3 +14,4 @@ Giriş yaparken kolay bir şekilde girş yapmanızı sağlıcak
 * firebase_core: ^2.24.2
 * firebase_auth: ^4.16.0
 *  firebase_storage: ^11.6.5
+*  google_sing_in
