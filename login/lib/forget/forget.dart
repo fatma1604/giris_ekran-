@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:login/conponets/my_button.dart';
 import 'package:login/conponets/my_tex.dart';
 
-
 class Forget extends StatefulWidget {
   const Forget({Key? key}) : super(key: key);
 
@@ -22,40 +21,75 @@ class _ForgetState extends State<Forget> {
     super.dispose();
   }
 
-  // Şifre sıfırlama butonuna basıldığında tetiklenen fonksiyon
   Future<void> _handleResetButtonPressed() async {
+    if (_emailController.text.isEmpty) {
+      // Eğer e-posta alanı boşsa, kullanıcıya uygun bir hata mesajı gösterilir.
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text("Lütfen e-posta adresinizi girin."),
+        ),
+      );
+      return;
+    }
+
     try {
+      // Kullanıcının email adresini kullanarak hesabın varlığını kontrol eder.
+      List<String> signInMethods =
+          await _auth.fetchSignInMethodsForEmail(_emailController.text);
+
+      // Eğer hesap yoksa, kullanıcıya uygun bir hata mesajı gösterilir.
+      if (signInMethods.isEmpty) {
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title:
+                Text("Bu e-posta adresiyle kayıtlı bir kullanıcı bulunamadı."),
+          ),
+        );
+        return;
+      }
+
       // Kullanıcının email adresini kullanarak şifre sıfırlama maili gönderilir
       await _auth.sendPasswordResetEmail(email: _emailController.text.trim());
 
+      // Kullanıcıya başarılı bir şekilde şifre sıfırlama bağlantısı gönderildiğinde gösterilecek SnackBar.
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Şifre sıfırlama bağlantısı e-postanıza gönderildi.'),
         ),
       );
     } on FirebaseAuthException catch (e) {
-      _showErrorDialog(e.message ?? 'Bir hata oluştu.');
-    }
-  }
+      // FirebaseAuthException, Firebase kimlik doğrulama işlemleri sırasında oluşan hataları temsil eder.
+      // Örneğin, kullanıcı yoksa, hatalı bir e-posta adresi girilmişse veya ağ bağlantısı yoksa bu tür hatalar oluşabilir.
 
-  void _showErrorDialog(String errorMessage) {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          title: Text('Hata'),
-          content: Text(errorMessage),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text(''),
-            ),
-          ],
+      // Eğer geçersiz e-posta hatası alınırsa, uygun bir hata mesajı gösterilir.
+      if (e.code == 'invalid-email') {
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text("Geçersiz e-posta adresi."),
+          ),
         );
-      },
-    );
+      } else {
+        // Diğer hatalar için genel bir hata mesajı gösterilir.
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text("Hata"),
+            content: Text(e.message ?? 'Bir hata oluştu.'),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text('Tamam'),
+              ),
+            ],
+          ),
+        );
+      }
+    }
   }
 
   @override

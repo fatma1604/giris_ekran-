@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:login/conponets/google_button.dart';
 import 'package:login/conponets/my_button.dart';
 import 'package:login/conponets/my_tex.dart';
 import 'package:login/login/loginpage.dart';
@@ -56,7 +57,7 @@ class _RegisterPageState extends State<RegisterPage> {
           showDialog(
             context: context,
             builder: (context) => AlertDialog(
-              title: Text('Beklenmeyen bir hata oluştu.'),
+              title: Text('Beklenmeyen bir hata oluştu.$e'),
             ),
           );
         }
@@ -122,23 +123,8 @@ class _RegisterPageState extends State<RegisterPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              InkWell(
-                onTap: () {},
-                child: Image.asset(
-                  "assets/images/google.png",
-                  width: 50,
-                  height: 50,
-                ),
-              ),
+              GoogleSignInButton(),
               const SizedBox(width: 16),
-              InkWell(
-                onTap: () {},
-                child: Image.asset(
-                  "assets/images/new.png",
-                  width: 50,
-                  height: 50,
-                ),
-              ),
             ],
           ),
           Row(

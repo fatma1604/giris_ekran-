@@ -44,41 +44,39 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAN9LOl1K6PMsT22-QetW0zXTOql6a8aHs',
-    appId: '1:397154214695:web:dc72885ce8313d7fb43f02',
-    messagingSenderId: '397154214695',
-    projectId: 'fairbaswork',
-    authDomain: 'fairbaswork.firebaseapp.com',
-    storageBucket: 'fairbaswork.appspot.com',
+    apiKey: 'AIzaSyAAT4WyG1RGMBSJaCdd7qlUADTgRHSR8N0',
+    appId: '1:38919177110:web:a7ff738830844a318113b7',
+    messagingSenderId: '38919177110',
+    projectId: 'fluttar-f5da5',
+    authDomain: 'fluttar-f5da5.firebaseapp.com',
+    storageBucket: 'fluttar-f5da5.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyABTZlAug9QmXPdGsD7BmcGwftvXLQf5Bk',
-    appId: '1:397154214695:android:5413d98799af060fb43f02',
-    messagingSenderId: '397154214695',
-    projectId: 'fairbaswork',
-    storageBucket: 'fairbaswork.appspot.com',
+    apiKey: 'AIzaSyB_wPCHcEIphCaTFR0IhCTNTNJf2xNmyPY',
+    appId: '1:38919177110:android:9d7439978b1737148113b7',
+    messagingSenderId: '38919177110',
+    projectId: 'fluttar-f5da5',
+    storageBucket: 'fluttar-f5da5.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCJfcUFcR5NU4quR140zdZ8Wz1XkBbj8Nw',
-    appId: '1:397154214695:ios:bce06f6f9c3130b7b43f02',
-    messagingSenderId: '397154214695',
-    projectId: 'fairbaswork',
-    storageBucket: 'fairbaswork.appspot.com',
-    androidClientId: '397154214695-n6eq287s943cg38t333jcujijgchnin7.apps.googleusercontent.com',
-    iosClientId: '397154214695-371n24aktbhjkflvcgg2b2st0nvuoqdi.apps.googleusercontent.com',
+    apiKey: 'AIzaSyDB2qD39JdwXaCMPLKLu8whdHpohxtmyfA',
+    appId: '1:38919177110:ios:651ace95c12d05128113b7',
+    messagingSenderId: '38919177110',
+    projectId: 'fluttar-f5da5',
+    storageBucket: 'fluttar-f5da5.appspot.com',
+    iosClientId: '38919177110-iljf2fag6r1l4fb25d64e0urphhemlhr.apps.googleusercontent.com',
     iosBundleId: 'com.example.login',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCJfcUFcR5NU4quR140zdZ8Wz1XkBbj8Nw',
-    appId: '1:397154214695:ios:2479401a6568286db43f02',
-    messagingSenderId: '397154214695',
-    projectId: 'fairbaswork',
-    storageBucket: 'fairbaswork.appspot.com',
-    androidClientId: '397154214695-n6eq287s943cg38t333jcujijgchnin7.apps.googleusercontent.com',
-    iosClientId: '397154214695-tsbjucr3frp9p8rm04bkp7du64tpcumn.apps.googleusercontent.com',
+    apiKey: 'AIzaSyDB2qD39JdwXaCMPLKLu8whdHpohxtmyfA',
+    appId: '1:38919177110:ios:12720e7aadde321d8113b7',
+    messagingSenderId: '38919177110',
+    projectId: 'fluttar-f5da5',
+    storageBucket: 'fluttar-f5da5.appspot.com',
+    iosClientId: '38919177110-cdjoh2k017ic77ua53ef2n65u9kpth83.apps.googleusercontent.com',
     iosBundleId: 'com.example.login.RunnerTests',
   );
 }
